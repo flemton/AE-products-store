@@ -6,14 +6,14 @@
     {% if session.logged_in %}
         <a href="/logout/">Logout</a>
     {% else %}
-        <a href="/login/">Login</a>
+        <a href="/user/login/">Login</a>
         <a href="/register/">Sign up</a>
     {% endif %}
 </div>
 <hr>
 
 {% if session['logged_in'] %}
-    <h5>Welcome, {{session['name'] }}</h5>
+    <h5>Welcome, {{session['first_name'] }}</h5>
 {% endif %}
 
 {% endblock body %}

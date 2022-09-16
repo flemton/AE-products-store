@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 @app.route('/')
 def home():
-    return 'Login Screen'
+    return render_template('index.html')
 
 @app.route('/staff/login/', methods = ['GET', 'POST'])
 def staff_login():
@@ -29,7 +29,9 @@ def staff_login():
                 
                 session['logged_in'] = True
 
-                session['email'] = staff.email 
+                session['email'] = staff.email
+
+                session['first_name'] = staff.first_name
 
                 return redirect(url_for('home'))
 
@@ -58,7 +60,9 @@ def user_login():
                 
                 session['logged_in'] = True
 
-                session['email'] = user.email 
+                session['email'] = user.email
+
+                session['first_name'] = user.first_name 
 
                 return redirect(url_for('home'))
 
